@@ -422,7 +422,7 @@ println!("guess {}", guess);
 * 有符号以 i 开头，范围 -2^(n - 1)~2^(n - 1) - 1
 
 
-![image](/assets/images/rust/integer.png)
+![integer](/assets/img/images/rust/integer.png)
 
 
 * isize 和 usize 类型，arch 表示系统的架构
@@ -437,7 +437,7 @@ println!("guess {}", guess);
 {: .prompt-info }
 
 
-![image](/assets/images/rust/iliteral.png)
+![字面量](/assets/img/images/rust/iliteral.png)
 
 
 ### 整数的溢出

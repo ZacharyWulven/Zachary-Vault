@@ -997,10 +997,10 @@ fn first_word(s: &str) -> &str {
 
 * Slice 是特殊的引用类型，因为他们是 `fat` 指针，带有元数据
 
-![image](/assets/images/rust/slice_str.png)
+![slice](/assets/images/rust/slice_str.png)
 
 
-![image](/assets/images/rust/slice_o.png)
+![SLICE](/assets/images/rust/slice_o.png)
 
 
 
