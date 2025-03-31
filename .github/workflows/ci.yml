@@ -73,10 +73,10 @@ jobs:
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: "_site${{ steps.pages.outputs.base_path }}"
+      # - name: Upload site artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: "_site${{ steps.pages.outputs.base_path }}"
                     # path: build_outputs_folder/
 
 
@@ -86,8 +86,20 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - uses: actions/download-artifact@v4
+      with:
+        name: page
+        path: .
+    - uses: actions/configure-pages@v5
+    - uses: actions/upload-pages-artifact@v3
+      with:
+        path: .
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+
