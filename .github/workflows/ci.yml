@@ -77,13 +77,7 @@ jobs:
       #   uses: actions/upload-pages-artifact@v3
       #   with:
       #     path: "_site${{ steps.pages.outputs.base_path }}"
-      - name: Upload static files as artifact
-        id: deployment
-        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
-        with:
-          # path: build_outputs_folder/
-          path: "_site${{ steps.pages.outputs.base_path }}"
-
+                    # path: build_outputs_folder/
 
 
   # Deployment job
