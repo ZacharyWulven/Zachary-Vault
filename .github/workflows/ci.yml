@@ -76,8 +76,8 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-         path: .
-          # path: "_site${{ steps.pages.outputs.base_path }}"
+         # path: .
+          path: "_site${{ steps.pages.outputs.base_path }}"
                     # path: build_outputs_folder/
 
 
@@ -92,12 +92,6 @@ jobs:
       id-token: write
     needs: build
     steps:
-    # - name: Upload site artifact 
-    #   uses: actions/upload-pages-artifact@v3
-    #   with:
-          # path: "_site${{ steps.pages.outputs.base_path }}"\
-          # path: .
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
-
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
