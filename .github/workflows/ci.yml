@@ -72,11 +72,11 @@ jobs:
           bundle exec htmlproofer _site \
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
-#
-      # - name: Upload site artifact
-      #   uses: actions/upload-pages-artifact@v3
-      #   with:
-      #     # path: _site${{ steps.pages.outputs.base_path }}
+
+       - name: Upload site artifact
+         uses: actions/upload-pages-artifact@v3
+         with:
+           path: _site${{ steps.pages.outputs.base_path }}
       #     path: build_outputs_folder/
                     # path: .
 
@@ -96,25 +96,6 @@ jobs:
       id-token: write
     needs: build
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # for posts's lastmod
-          
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
-
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
