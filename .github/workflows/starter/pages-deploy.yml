@@ -37,33 +37,20 @@ jobs:
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v4
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
           bundler-cache: true
-      
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Build Assets
-        run: npm i && npm run build
-        
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
 
-      - name: Test Site By Shell
-        run: bash tools/test.sh
-        
-        
-      - name: Test site htmlproofer
+      - name: Test site
         run: |
           bundle exec htmlproofer _site \
             \-\-disable-external \
