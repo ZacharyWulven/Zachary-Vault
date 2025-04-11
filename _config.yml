@@ -29,7 +29,7 @@ description: >- # used by seo meta and the atom feed
 url: ''
 
 github:
-  username: Zachary # change to your github username
+  username: Sirloin # change to your github username
 
 twitter:
   username: # change to your twitter username
@@ -37,7 +37,7 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: Zachary
+  name: Sirloin
   email: example@domain.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
@@ -77,17 +77,19 @@ theme_mode: # [light|dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn:
+cdn: "https://chirpy-img.netlify.app"
 
 # the avatar on sidebar, support local or CORS resources
-avatar: /assets/images/avatar.jpg
+avatar: "/assets/images/avatar.jpg"
 
 # boolean type, the global switch for ToC in posts.
 toc: true
 
 comments:
-  active: # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
+#  active: # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
   # The active options are as follows:
+  provider: # [disqus | utterances | giscus]
+
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
   # utterances settings › https://utteranc.es/
@@ -157,14 +159,15 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-  - scope:
-      path: assets/favicons/
-    values:
-      swcache: true
-  - scope:
-      path: assets/js/dist
-    values:
-      swcache: true
+      
+#  - scope:
+#      path: assets/favicons/
+#    values:
+#      swcache: true
+#  - scope:
+#      path: assets/js/dist
+#    values:
+#      swcache: true
 
 sass:
   style: compressed
